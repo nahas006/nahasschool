@@ -1,0 +1,47 @@
+{% csrf_token %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <style>
+        body {
+            background-color: green;
+            font-size: 16px; /* Adjust the font size as needed */
+            text-align: center;
+        }
+        h2 {
+            font-size: 24px; /* Adjust the heading font size as needed */
+        }
+        form {
+            max-width: 400px; /* Adjust the maximum width of the form */
+            margin: 0 auto; /* Center the form horizontally */
+        }
+        label, select, input {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px; /* Adjust the margin as needed */
+            padding: 10px; /* Adjust the padding as needed */
+            border: 1px solid #ccc; /* Add a border for a clear visual separation */
+            border-radius: 5px; /* Add rounded corners for a nicer look */
+            font-size: 16px; /* Adjust the font size as needed */
+        }
+    </style>
+</head>
+
+<body style="background-color:white;font-size:250%;text-align:center;">
+<h2>LOGIN</h2>
+<form action="login" method="post">
+    {% csrf_token %}
+    <input type="text" name="username" placeholder="Enter your username"><br>
+
+    <input type="password" name="password" placeholder="Enter your password"><br>
+
+    <input  type="submit" >
+</form>
+{% for msg in messages%}
+<h2>{{msg}}</h2>
+{% endfor %}
+
+</body>
+</html>
